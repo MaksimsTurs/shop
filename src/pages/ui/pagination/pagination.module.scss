@@ -1,0 +1,34 @@
+@import "@/variabels";
+
+.pagination_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0rem;
+
+  .pagination_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $def-font-border-content-color;
+    color: $def-font-border-content-color;
+    border-radius: $def-button-border-radius;
+    height: 2.9rem;
+    width: 2.9rem;
+    margin-right: 0.7rem;
+    transition: all $def-transition-time ease;
+    cursor: pointer;
+
+    &:hover {
+      background: $def-button-background-color-hover-black;
+      transition: all $def-transition-time ease;
+    }
+  }
+
+  .pagination_button_active {
+    color: white;
+    background: $def-font-border-content-color;
+    transition: all $def-transition-time ease;
+  }
+
+}

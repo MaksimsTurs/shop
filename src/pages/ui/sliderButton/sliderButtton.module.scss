@@ -1,0 +1,21 @@
+@import "@/variabels";
+
+.slider_index {
+  border-radius: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  transition: all $def-transition-time ease;
+  cursor: pointer;
+
+  &:hover {
+    transition: all $def-transition-time;
+    background: $def-button-background-color;
+  }
+}
+
+.slider_index_active {
+  transition: all $def-transition-time;
+  background: $def-button-background-color;
+}

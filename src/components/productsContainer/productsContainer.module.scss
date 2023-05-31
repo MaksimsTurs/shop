@@ -1,0 +1,202 @@
+@import "@/variabels";
+
+.products_container_hedaer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .products_container_header_title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $def-font-border-content-color;
+  }
+
+  .products_popular_container {
+    display: flex;
+
+    li {
+      margin-right: 1rem;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    .products_popular_title {
+      display: block;
+      color: $def-font-border-content-color;
+      border: 1px solid $def-font-border-content-color;
+      border-radius: $def-button-border-radius;
+      padding: 0.7rem 0.9rem;
+      cursor: pointer;
+      transition: all $def-transition-time ease;
+
+      &:hover {
+        background: $def-button-background-color-hover-black;
+        transition: all $def-transition-time ease;
+      }
+    }
+  }
+}
+
+.products_card_container {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1.5rem 2.1rem;
+
+  .products_card_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid $def-font-border-content-color;
+    border-radius: $def-button-border-radius;
+    padding: 1rem 0.5rem;
+    position: relative;
+    width: 15rem;
+
+    .products_star_container {
+      height: 2.5rem;
+    }
+
+    .products_favorite_icon {
+      position: absolute;
+      right: 8%;
+      top: 8%;
+      padding: 0.25rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-color: #b3d4e5;
+      border-radius: 50%;
+      transition: all $def-transition-time ease;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #95b8c9;
+        transition: all $def-transition-time ease;
+      }
+    }
+      
+      .products_title {
+        font-size: 1.2rem;
+        color: $def-font-border-content-color;
+      }
+
+      .products_card_icon {
+        height: 9.25rem;
+        width: 13.8rem;
+        object-fit: cover;
+        border-radius: $def-button-border-radius;
+      }
+    
+      .products_star_fill {
+        fill: $def-button-background-color-hover-yellow;
+      }
+    }
+  }
+
+.products_wrapper_container {
+  background: url("./img/wrapper-bg.png") no-repeat;
+  border-radius: $def-button-border-radius;
+  overflow: hidden;
+  object-fit: cover;
+  background-size: 100% 100%;
+  margin: 3.5rem 0rem;
+  padding: 7rem 5rem;
+  display: flex;
+  justify-content: flex-end;
+
+  .products_wrapper_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .products_wrapper_link {
+      display: block;
+      color: white;
+      padding: 0.8rem 1rem;
+      width: fit-content;
+      height: fit-content;
+      background: $def-button-background-color;
+      border-radius: $def-button-border-radius;
+      transition: all $def-transition-time ease;
+
+      &:hover {
+        background: $def-button-background-color-hover-yellow;
+        transition: all $def-transition-time ease;
+      }
+    }
+
+    .products_wrapper_title {
+      margin: 1rem 0rem 0.8rem 0rem;
+      color: #2e8fc5;
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+
+    .products_wrapper_text {
+      color: white;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.products_detailed_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  .products_detailed_body {
+    border: 1px solid $def-font-border-content-color;
+    border-radius: $def-button-border-radius;
+    padding: 2rem;
+    width: 45rem;
+
+    .products_detailed_content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: right;
+
+      .products_detailed_icon_container {
+        margin-right: 2rem;
+        width: 38rem;
+        height: 15rem;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+
+        .products_detailed_icon {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 18rem;
+          height: 15rem;
+          border-radius: 10%;
+          transition: all $def-transition-image-slider ease;
+        }
+
+        .products_detailed_icon_hiidden {
+          left: -130%;
+          opacity: 0;
+          visibility: hidden;
+          transition: all $def-transition-image-slider ease;
+        }
+      }
+    }
+  }
+
+  .products_detailed_slider_button_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .products_detailed_info_title {
+    font-size: 1.5rem;
+    color: $def-font-border-content-color;
+    font-weight: bold;
+  }
+}

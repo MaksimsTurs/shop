@@ -1,0 +1,30 @@
+@import "@/variabels";
+
+.footer_container {
+  background: #e2f4ff;
+  padding: 4rem 6rem;
+  display: flex;
+  justify-content: space-between;
+
+  .footer_adress {
+    width: fit-content;
+    color: $def-font-border-content-color;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid silver;
+  }
+
+  .footer_body {
+    color: $def-font-border-content-color;
+
+    & > h4 {
+      font-weight: bolder;
+    }
+
+    ul {
+      & > li {
+        list-style: disc;
+        margin-left: 1.5rem;
+      }
+    }
+  }
+}

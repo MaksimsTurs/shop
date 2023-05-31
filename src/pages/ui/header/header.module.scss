@@ -1,0 +1,208 @@
+@import "@/variabels";
+
+.header_container {
+  padding: 0.75rem $def-hmf-padding;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .header_top_container {
+    display: flex;
+
+    .header_top_button {
+      display: flex;
+      padding: 0.25rem 0.5rem;
+      position: relative;
+      color: $def-font-color;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0%;
+        bottom: 0%;
+        width: 0%;
+        height: 1px;
+        background: $def-font-color;
+        transition: $def-transition-time;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+
+      &:first-child {
+        margin-right: 0.75rem;
+      }
+
+      .header_top_icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .header_flex_container {
+    display: flex;
+    align-items: center;
+  }
+
+  .header_form_body {
+    position: relative;
+    margin-left: 1rem;
+    width: 7rem;
+
+    .header_form_input {
+      margin-right: 0.5rem;
+      padding: 0.5rem 5rem 0.5rem 0.5rem;
+      border-radius: $def-input-border-radius;
+    }
+
+    .header_form_button {
+      position: absolute;
+      right: -160%;
+      top: 0%;
+      height: 100%;
+      padding: 0.25rem 1.5rem;
+      background: $def-button-background-color;
+      border-radius: $def-input-border-radius;
+      transition: all $def-transition-time ease;
+
+      &:hover {
+        background: $def-button-background-color-hover-yellow;
+        transition: $def-transition-time;
+      }
+    }
+  }
+
+  .header_container_margin {
+    margin-right: 0.5rem;
+  }
+
+  .header_container_margin_extra {
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0rem;
+    }
+  }
+
+  .header_count {
+    padding: 0.05rem 0.35rem;
+    font-size: 0.7rem;
+    color: white;
+    border-radius: $def-circle-radius;
+    background-color: $def-button-background-color;
+  }
+
+  .header_user_icon {
+    width: 1.35rem;
+    height: 1.35rem;
+    margin-right: 0.35rem;
+  }
+
+  .header_user_text {
+    color: white;
+  }
+
+  .header_user_button {
+    padding: 0.45rem 0.85rem;
+    transition: all $def-transition-time ease;
+
+    &:hover {
+      transition: all $def-transition-time ease;
+      border-radius: $def-button-border-radius;
+      background: $def-background-color;
+    }
+  }
+}
+
+.header_container_bottom {
+  padding: 0rem $def-hmf-padding;
+  display: flex;
+  align-items: center;
+  background-color: #f4f4f4;
+
+  .header_menu_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12rem;
+    padding: 0.25rem 1rem;
+    color: white;
+    transition: all $def-transition-time ease;
+    background: $def-button-background-color;
+    cursor: pointer;
+
+    &:hover {
+      transition: all $def-transition-time ease;
+      background: $def-button-background-color-hover-yellow;
+    }
+
+    span {
+      pointer-events: none;
+      margin-left: 0.8rem;
+      font-size: 1.55rem;
+      transition: all $def-transition-time;
+    }
+
+    &:hover span {
+      rotate: 90deg;
+    }
+
+    &:hover > .header_list_items {
+      position: absolute;
+      z-index: 1;
+      display: inline-block;
+      bottom: -162%;
+      background: white;
+      left: 0%;
+      width: 100%;
+      border: $def-border;
+      background: rgba(0, 0, 0, 0.05);
+      height: calc(33px * 2);
+    }
+  }
+
+  .header_container_position {
+    position: relative;
+
+    .header_list_items {
+      display: none;
+
+      .header_list_item {
+        display: block;
+        padding: 0.45rem 0.85rem;
+        transition: all 0.1s ease;
+
+        &:hover {
+          transition: all $def-transition-time ease;
+          background: rgba(0, 0, 0, 0.09);
+        }
+      }
+    }
+  }
+
+  .header_nav_list_items {
+    display: flex;
+    align-items: center;
+    margin-left: 5rem;
+
+    .header_nav_list_item {
+      padding: 0.5rem 0.9rem;
+      color: $def-font-color;
+      transition: all $def-transition-time ease;
+
+      &:hover {
+        background-color: rgb(232, 232, 232);
+        border-radius: $def-button-border-radius;
+        transition: all $def-transition-time ease;
+      }
+    }
+  }
+}
+
+.header_background {
+  background-color: #003f62;
+}
