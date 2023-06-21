@@ -5,14 +5,18 @@ import { Link } from "react-router-dom";
 
 import { ProductData } from "@/store/productStore/interfaces/products.interface";
 
-import getTopCategories from "@/functions/getTopCategories";
+import firstLetterToUpercase from "@/functions/firstLetterToUpercase";
+import removeDuplicateFromArray from "@/functions/removeDuplicate";
 
 interface ComponeProps {
   products: ProductData[];
 }
 
 const ProductHeader: FC<ComponeProps> = ({ products }) => {
-  const { popularCategories } = getTopCategories(products)
+  const topCategories: ProductData[] = products.toSorted((first, second) => second.rating - first.rating)
+
+  //@ts-ignore
+  const topCategoriesUperCased: string[] = removeDuplicateFromArray(firstLetterToUpercase(topCategories.map(el => el.category)))
 
   return (
     <div className={style.products_container_hedaer}>
@@ -20,7 +24,7 @@ const ProductHeader: FC<ComponeProps> = ({ products }) => {
         Popular products
       </h4>
       <ul className={style.products_popular_container}>
-        {popularCategories.map((element, index) => {
+        {topCategoriesUperCased.map((element, index) => {
           return (
             <li key={index}>
               <Link

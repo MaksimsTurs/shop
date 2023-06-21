@@ -9,6 +9,7 @@
   overflow: hidden;
   transition: all $def-transition-time ease;
 
+
   .slider_title {
     font-size: $def-font-h3-size;
     color: $def-font-border-content-color;
@@ -19,7 +20,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-
+    
     .slider_link {
       color: white;
       margin-right: 0.75rem;
@@ -27,7 +28,7 @@
       border-radius: $def-button-border-radius;
       background: $def-button-background-color;
       transition: all $def-transition-time ease;
-
+      
       &:hover {
         background: $def-button-background-color-hover-yellow;
         transition: all $def-transition-time ease;
@@ -46,10 +47,7 @@
         transition: all $def-transition-time ease;
       }
     }
-  }
 
-  .slider_index_container {
-    display: flex;
   }
 
   .slider_icons_container {

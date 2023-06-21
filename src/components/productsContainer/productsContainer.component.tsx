@@ -1,55 +1,57 @@
-import style from "./productsContainer.module.scss";
+import style from './productsContainer.module.scss'
 
-import { FC, Fragment, useEffect } from "react";
+import { FC, Fragment, useState } from 'react'
 
-import ProductHeader from "./ui/productsHeader.component";
-import ProductCard from "./ui/productsCard.component";
-import TextLoader from "../loaders/ui/textLoader.component";
-import ProductAction from "./ui/productAction.component";
-import ProductDetailed from "./ui/productDetailed.component";
-import Pagination from "@/pages/ui/pagination/pagination.component";
+import ProductHeader from './ui/productsHeader.component'
+import ProductCard from '../../pages/ui/productCard/productsCard.component'
+import TextLoader from '../loaders/ui/textLoader.component'
+import ProductAction from './ui/productAction.component'
+import BestProduct from './ui/bestProduct.component'
+import Pagination from '@/pages/ui/pagination/pagination.component'
 
-import { AppDispatch, RootState } from "@/store/store";
-import { ProductInitialState } from "@/store/productStore/interfaces/products.interface";
+import { RootState } from '@/store/store'
+import { ProductInitialState } from '@/store/productStore/interfaces/products.interface'
 
-import { useSelector, useDispatch } from "react-redux";
-import gettAllProducts from "@/store/productStore/actions/product.getall.action";
+import { useSelector } from 'react-redux'
+import ProductCardsLoader from '../productCardsLoader/productCardsLoader.component'
 
 const ProductsContainer: FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
+	const {
+		isLoading,
+		currentPageProducts,
+		pagesCount,
+		currentPage,
+		bestProduct,
+	} = useSelector<RootState, ProductInitialState>(state => state.products)
 
-  useEffect(() => {
-    dispatch(gettAllProducts());
-  }, []);
+	const [isPagiantionLoading, setPaginationLoading] = useState<boolean>(false)
 
-  const { isLoading, products, pagesCount, currentPage, bestProduct } =
-    useSelector<RootState, ProductInitialState>((state) => state.products);
+	return (
+		<Fragment>
+			<ProductHeader products={currentPageProducts} />
+			<Pagination
+				setLoading={setPaginationLoading}
+				pagesCount={pagesCount}
+				currentPage={currentPage}
+			/>
+			{isLoading || isPagiantionLoading ? (
+				<ProductCardsLoader />
+			) : (
+				<div className={style.products_card_container}>
+					{currentPageProducts.map(data => (
+						<ProductCard product={data} key={data.id} />
+					))}
+				</div>
+			)}
+			<ProductAction />
+			{isLoading ? <TextLoader /> : <BestProduct products={bestProduct} />}
+			<Pagination
+				setLoading={setPaginationLoading}
+				pagesCount={pagesCount}
+				currentPage={currentPage}
+			/>
+		</Fragment>
+	)
+}
 
-  return (
-    <Fragment>
-      <ProductHeader products={products} />
-      <Pagination pagesCount={pagesCount} currentPage={currentPage} />
-      {isLoading ? (
-        <div className={style.products_card_container}>
-          <TextLoader />
-          <TextLoader />
-          <TextLoader />
-          <TextLoader />
-          <TextLoader />
-          <TextLoader />
-        </div>
-      ) : (
-        <div className={style.products_card_container}>
-          {products.map((data) => (
-            <ProductCard product={data} key={data.id} />
-          ))}
-        </div>
-      )}
-      <ProductAction />
-      {isLoading ? <TextLoader /> : <ProductDetailed products={bestProduct} />}
-      <Pagination pagesCount={pagesCount} currentPage={currentPage} />
-    </Fragment>
-  );
-};
-
-export default ProductsContainer;
+export default ProductsContainer

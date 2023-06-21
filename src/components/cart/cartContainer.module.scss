@@ -1,0 +1,104 @@
+@import '@/variabels.scss';
+
+.cart_main_container {
+	display: flex;
+	margin: 1rem 0;
+
+	.cart_products_header {
+		display: flex;
+		padding: 0.6rem 1rem;
+		background: #e2f4ff;
+	}
+
+		.cart_product_data_body {
+      padding: 1rem 0rem;
+			display: flex;
+			align-items: center;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
+      &:last-child {
+        margin: 0;
+      }
+
+			.cart_product_info {
+				margin-left: 0.5rem;
+
+				.cart_product_title {
+					font-size: 1.1rem;
+					color: $def-font-border-content-color;
+				}
+
+				.cart_product_data {
+					display: flex;
+
+					& > span {
+						color: rgb(147, 147, 147);
+						margin-left: 0.5rem;
+					}
+				}
+			}
+
+			.cart_data_flex {
+				display: flex;
+				align-items: center;
+
+				.cart_delete_button {
+					border: 1px solid #000;
+					border-radius: 50%;
+					padding: 0.2em 0.3rem;
+					font-size: 0.55rem;
+					color: black;
+
+					&:hover {
+						background-color: $def-button-background-color-hover-black;
+					}
+				}
+
+				.cart_product_image {
+					width: 5rem;
+					height: 5rem;
+          border-radius: $def-image-border-radius;
+        }
+			}
+		}
+	}
+	.cart_clear_button {
+    margin-top: 1rem;
+		padding: 0.8rem 1.9rem;
+		border: 1px solid #500;
+		font-weight: bold;
+		border-radius: 50px;
+		color: #500;
+		transition: all $def-transition-time ease;
+
+		&:hover {
+			transition: all $def-transition-time ease;
+			background-color: $def-button-background-color-hover-black;
+		}
+	}
+
+
+.width_small {
+	width: 6rem;
+}
+
+.width_midlle {
+	width: 10rem;
+}
+
+.width_big {
+	width: 19rem;
+}
+
+.cart_empty {
+  color: silver;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  
+  & > p {
+    font-size: 2rem;
+  }
+}

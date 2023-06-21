@@ -29,6 +29,11 @@
     color: white;
     background: $def-font-border-content-color;
     transition: all $def-transition-time ease;
+
+    &:hover {
+      transition: all $def-transition-time ease;
+      background-color: #154762;
+    }
   }
 
 }

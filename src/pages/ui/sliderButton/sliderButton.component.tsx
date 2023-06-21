@@ -1,26 +1,31 @@
-import style from "./sliderButtton.module.scss";
+import style from './sliderButtton.module.scss'
 
-import { Dispatch, FC, SetStateAction } from "react";
+import { Dispatch, FC, SetStateAction } from 'react'
 
 interface ComponentProps {
-  index: number;
-  active: number;
-  slideTo: Dispatch<SetStateAction<number>>;
+	activeSlide: number
+	slides: number
+	slideTo: Dispatch<SetStateAction<number>>
 }
 
-const SliderButton: FC<ComponentProps> = ({ index, active, slideTo }) => {
-  const clickHandeler = () => slideTo(index + 1);
+const SliderButton: FC<ComponentProps> = ({ activeSlide, slides, slideTo }) => {
+	return (
+		<div className={style.slider_index_container}>
+			{[...Array(slides)].map((_, index: number) => {
+				return (
+					<div
+            key={index}
+						className={
+							index === activeSlide
+								? `${style.slider_index} ${style.slider_index_active}`
+								: style.slider_index
+						}
+						onClick={() => slideTo(index)}
+					></div>
+				)
+			})}
+		</div>
+	)
+}
 
-  return (
-    <div
-      className={
-        index + 1 == active
-          ? `${style.slider_index} ${style.slider_index_active}`
-          : style.slider_index
-      }
-      onClick={clickHandeler}
-    ></div>
-  );
-};
-
-export default SliderButton;
+export default SliderButton

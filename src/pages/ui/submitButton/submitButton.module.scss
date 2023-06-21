@@ -1,0 +1,14 @@
+@import '@/variabels';
+
+.submit_button {
+	font-weight: bold;
+	background: $def-font-border-content-color;
+	padding: 0.5rem 2rem;
+	border-radius: $def-button-border-radius;
+	transition: all $def-transition-time ease;
+
+	&:hover {
+		background: #15435c;
+		transition: all $def-transition-time ease;
+	}
+}

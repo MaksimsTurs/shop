@@ -1,22 +1,25 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import { PorductResponseData, ProductData } from "../interfaces/products.interface";
+import { ProductGetAll } from '../interfaces/products.interface'
 
-const gettAllProducts = createAsyncThunk<PorductResponseData, undefined>(
-  "products/getall",
-  async (_, thunkApi) => {
-    try {
-      const { data } = await axios.get(
-        `https://dummyjson.com/products?limit=15`
-      );
-      const products: ProductData[] = data.products
-      const total: number = data.total
-      return { products, total }
-    } catch (error) {
-      return thunkApi.rejectWithValue(error)
-    }
-  }
-);
+const getAllProducstandCategories = createAsyncThunk<ProductGetAll, undefined>(
+	'products/getall',
+	async (_, thunkApi) => {
+		const allProductURL: string = 'https://dummyjson.com/products?limit=100'
+		const allCategoriesURL: string = 'https://dummyjson.com/products/categories'
 
-export default gettAllProducts
+		try {
+			const responseProductData = await fetch(allProductURL)
+			const responseCategoriesData = await fetch(allCategoriesURL)
+
+			const { products, total } = await responseProductData.json()
+			const categories: string[] = await responseCategoriesData.json()
+
+			return { products, total, categories }
+		} catch (error) {
+			return thunkApi.rejectWithValue({error, allCategoriesURL, allProductURL})
+		}
+	}
+)
+
+export default getAllProducstandCategories

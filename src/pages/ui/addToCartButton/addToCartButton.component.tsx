@@ -1,10 +1,24 @@
 import style from "./addToCartButton.module.scss";
 
 import { FC } from "react";
+import { AppDispatch } from "@/store/store";
 
-const AddToCurtButton: FC = () => {
+import { useDispatch } from "react-redux";
+import { addProductToCart } from "@/store/productStore/productSlice";
+
+import { ProductDataCart } from "@/store/productStore/interfaces/products.interface";
+
+interface ComponentProps {
+  product: ProductDataCart
+}
+
+const AddToCurtButton: FC<ComponentProps> = ({ product }) => {
+  const dispatch = useDispatch<AppDispatch>()
+
+  const addToCart = () => dispatch(addProductToCart({ product, count: 1 }))
+
   return (
-    <button className={style.products_add_to_cart_button}>
+    <button className={style.products_add_to_cart_button} onClick={addToCart}>
       Add to cart
       <svg
         width="18"

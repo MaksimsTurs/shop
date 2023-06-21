@@ -1,0 +1,92 @@
+@import '@/variabels';
+
+.products_card_container {
+	margin-top: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.products_card_body {
+	border: 1px solid $def-font-border-content-color;
+	border-radius: $def-button-border-radius;
+	padding: 1rem 0.5rem;
+	position: relative;
+	width: 15rem;
+	height: 20rem;
+
+	&:hover .products_card_icon {
+		transform: scale(1.15);
+		transition: all $def-transition-time ease;
+	}
+
+	.products_star_container {
+		height: 2.5rem;
+	}
+
+	.products_favorite_icon {
+		position: absolute;
+		right: 8%;
+		top: 8%;
+		padding: 0.25rem;
+		width: 1.5rem;
+		height: 1.5rem;
+		background-color: #b3d4e5;
+		border-radius: 50%;
+		transition: all $def-transition-time ease;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #95b8c9;
+			transition: all $def-transition-time ease;
+		}
+	}
+
+	.products_info_container {
+		display: flex;
+		justify-content: space-between;
+		text-align: right;
+
+		p {
+			color: $def-border;
+		}
+
+		span {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			margin-left: 1rem;
+			color: rgb(147, 147, 147);
+		}
+	}
+
+	.products_title {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.products_title {
+		font-size: 1.2rem;
+		color: $def-font-border-content-color;
+	}
+
+	.products_card_icon_container {
+		height: 9.25rem;
+		width: 13.8rem;
+		display: block;
+		border-radius: $def-button-border-radius;
+		overflow: hidden;
+		
+		.products_card_icon {
+			object-fit: cover;
+			height: 9.25rem;
+			width: 13.8rem;
+			transition: all $def-transition-time ease;
+		}
+	}
+
+	.products_star_fill {
+		fill: $def-button-background-color-hover-yellow;
+	}
+}

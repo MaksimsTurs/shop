@@ -1,0 +1,30 @@
+@import '@/variabels';
+
+.count_container {
+	margin: 0.5rem 0rem;
+
+	.count_button_container {
+		display: flex;
+		align-items: center;
+
+		.count_num {
+			padding: 0.3rem 1rem;
+			position: relative;
+			width: 4rem;
+			text-align: center;
+			background-color: rgba(192, 192, 192, 0.6);
+		}
+
+		.count_button {
+			color: black;
+			padding: 0.3rem 1rem;
+			background-color: $def-button-background-color;
+			transition: all $def-transition-time ease;
+
+			&:hover {
+				background-color: $def-button-background-color-hover-yellow;
+				transition: all $def-transition-time ease;
+			}
+		}
+	}
+}

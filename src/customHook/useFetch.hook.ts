@@ -1,29 +1,50 @@
-import { useEffect, useState } from "react";
-import axios, { AxiosError } from "axios";
+import { useEffect, useState } from 'react'
 
-const useFetch = (url: string, deps?: any, loadingState: boolean = true) => {
-  const [stateData, setData] = useState<any | undefined>();
-  const [isLoading, setLoading] = useState<boolean>(loadingState);
-  const [errorCode, setErrorCode] = useState<number | undefined>(undefined);
+const useFetch = <T>(
+	url: string,
+  defValue: any,
+	loadingState: boolean = true,
+	deps?: any[] | any,
+	body?: any,
+) => {
+	const [stateData, setData] = useState<T>(defValue)
+	const [isLoading, setLoading] = useState<boolean>(loadingState)
+	const [fetchError, setFetchError] = useState<string>('')
 
-  useEffect(() => {
-    const fetcher = async () => {
-      try {
-        const { data } = await axios.get(url);
-        setData(data);
-      } catch (error) {
-        const statusCode: number | undefined = (error as AxiosError).response
-          ?.status;
-        setErrorCode(statusCode);
-      }
+	useEffect(() => {
+		const fetcher = async () => {
+			try {
+				if (body) {
+					const response: Response = await fetch(url, {
+						body: JSON.stringify({ body }),
+					})
 
-      setLoading(false);
-    };
+					const data = await response.json()
+					setData(data)
+				} else {
+          const response: Response = await fetch(url)
+					const data = await response.json()
 
-    fetcher();
-  }, [deps]);
+					setData(data)
+				}
+			} catch (error) {
+				const isTypeError: boolean = String(error).includes('TypeError')
+				const isURLUndefined: boolean = url === undefined ? true : false
 
-  return { stateData, isLoading, errorCode };
-};
+				if (isTypeError) {
+					setFetchError(`Failed to fetch: ${url}`)
+				} else if (isURLUndefined) {
+					setFetchError('URL cann not undefined!')
+				}
+			}
 
-export default useFetch;
+			setLoading(false)
+		}
+
+		fetcher()
+	}, [Array.isArray(deps) ? deps.map(e => e) : deps])
+
+	return { stateData, isLoading, fetchError }
+}
+
+export default useFetch

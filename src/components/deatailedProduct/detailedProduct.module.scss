@@ -1,0 +1,132 @@
+@import '@/variabels.scss';
+
+.detailed_product_main_info {
+	display: flex;
+
+	.detailed_product_image {
+		padding: 0.5rem;
+		margin-bottom: 1rem;
+		width: 32rem;
+		height: 23rem;
+		object-fit: cover;
+		border: 1px solid $def-border;
+		border-radius: $def-image-border-radius;
+	}
+
+	.detailed_product_image_slider {
+		display: flex;
+		gap: 1rem;
+		width: 33rem;
+		flex-wrap: wrap;
+
+		.detailed_slider_active {
+			border: 2px solid rgba(0, 0, 0, 0.5) !important;
+		}
+
+		.detailed_slider_image {
+			padding: 0.5rem;
+			width: 10rem;
+			height: 10rem;
+			object-fit: cover;
+			cursor: pointer;
+			border: 2px solid $def-border;
+			border-radius: $def-image-border-radius;
+		}
+	}
+
+	.detailed_product_info_container {
+		margin-left: 1rem;
+
+		.detailed_product_info_top {
+			padding-bottom: 1rem;
+			margin-bottom: 1rem;
+			border-bottom: 1px solid $def-border;
+
+			.detailed_title {
+				font-size: 2rem;
+				font-weight: normal;
+				color: $def-font-border-content-color;
+			}
+			.detailed_price {
+				font-size: 1.5rem;
+				font-weight: normal;
+			}
+
+			.detailed_availability {
+				font-size: 1.1rem;
+				font-weight: 500;
+			}
+		}
+	}
+}
+.detailed_button_container {
+	margin: 1rem 0rem;
+	border-bottom: 1px solid $def-border;
+	padding-bottom: 1rem;
+
+	.detailed_product_dispatcher {
+		color: white;
+		background-color: $def-button-background-color;
+		transition: all $def-transition-time ease;
+		border-radius: 20px;
+		width: 100%;
+		padding: 0.5rem 0rem;
+		font-size: 1.1rem;
+		font-weight: bold;
+
+		&:first-child {
+			margin-bottom: 0.5rem;
+		}
+
+		&:hover {
+			background-color: $def-button-background-color-hover-yellow;
+			transition: all $def-transition-time ease;
+		}
+	}
+}
+
+.detailed_product_title {
+	display: flex;
+	justify-content: space-between;
+
+	& > span {
+		color: rgb(132, 132, 132);
+	}
+
+	& > p {
+		margin-right: 1rem;
+	}
+}
+.detailed_product_description {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid $def-border;
+
+	& > p {
+		margin-bottom: 0.5rem;
+	}
+
+	& > button {
+		width: fit-content;
+		background-color: $def-font-border-content-color;
+		color: white;
+		padding: 0.8rem 1rem;
+		border-radius: 20px;
+	}
+}
+
+.detailed_avalable {
+	font-size: 1.1rem;
+	margin-left: 0.5rem;
+	color: green;
+}
+
+.detailed_not_avalable {
+	font-size: 1.1rem;
+	margin-left: 0.5rem;
+	color: red;
+}
